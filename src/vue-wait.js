@@ -62,6 +62,7 @@ export default class VueWait {
         throw new Error('[vue-wait] Vuex not initialized.');
       }
       this.store = store;
+      store['__$waitInstance'] = this;
 
       if (!store._modules.get([vuexModuleName])) {
         store.registerModule(vuexModuleName, vuexStore);
